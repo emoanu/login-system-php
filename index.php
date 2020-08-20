@@ -8,6 +8,22 @@
 <div class="form-wrapper">
   
   <form action="#" method="post">
+  <?php
+
+if (isset($_SESSION['success_msg'])) {
+  echo "<span class=error>".$_SESSION['success_msg']."</span>";
+ unset($_SESSION['success_msg']);
+}
+elseif (isset($_SESSION['err_msg'])) {
+  echo "<span class=success>".$_SESSION['err_msg']."</span>";
+ unset($_SESSION['err_msg']);
+  
+}
+?>
+
+
+
+
     <h3>Login here</h3>
 	
     <div class="form-item">
@@ -55,6 +71,13 @@
 				}
 		}
   ?>
+  
+<?php
+if(isset($_POST['Submit'])){
+    $_SESSION['success_msg'];
+}
+?>
+
   <div class="reminder">
     <p>Not a member? <a href="signUp.php">Sign up now</a></p>
     <p><a href="#">Forgot password?</a></p>

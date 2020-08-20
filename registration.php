@@ -15,12 +15,11 @@ if(session_status()==PHP_SESSION_NONE){
     
 
 if($query){
-    
-   echo "Your account has been successfully registered";
+    $_SESSION['success_msg']="Your account has been successfully registered";
     header('location:index.php');
 }
 else{
-    echo "something went wrong";
+    $_SESSION['err_msg']="Something went wrong.Try again.";
     header('location:signUp.php');
 }
 }
